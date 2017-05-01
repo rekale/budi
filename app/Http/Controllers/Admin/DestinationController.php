@@ -68,7 +68,7 @@ class DestinationController extends AppBaseController
 
         Flash::success('Destination saved successfully.');
 
-        return redirect(route('admin.destinations.index'));
+        return redirect(route('destinations.index'));
     }
 
     /**
@@ -85,7 +85,7 @@ class DestinationController extends AppBaseController
         if (empty($destination)) {
             Flash::error('Destination not found');
 
-            return redirect(route('admin.destinations.index'));
+            return redirect(route('destinations.index'));
         }
 
         return view('admin.destinations.show')->with('destination', $destination);
@@ -105,7 +105,7 @@ class DestinationController extends AppBaseController
         if (empty($destination)) {
             Flash::error('Destination not found');
 
-            return redirect(route('admin.destinations.index'));
+            return redirect(route('destinations.index'));
         }
 
         return view('admin.destinations.edit')->with('destination', $destination);
@@ -126,7 +126,7 @@ class DestinationController extends AppBaseController
         if (empty($destination)) {
             Flash::error('Destination not found');
 
-            return redirect(route('admin.destinations.index'));
+            return redirect(route('destinations.index'));
         }
 
         $input = $request->all();
@@ -141,7 +141,7 @@ class DestinationController extends AppBaseController
 
         Flash::success('Destination updated successfully.');
 
-        return redirect(route('admin.destinations.index'));
+        return redirect(route('destinations.index'));
     }
 
     /**
@@ -158,13 +158,13 @@ class DestinationController extends AppBaseController
         if (empty($destination)) {
             Flash::error('Destination not found');
 
-            return redirect(route('admin.destinations.index'));
+            return redirect(route('destinations.index'));
         }
 
         $this->destinationRepository->delete($id);
 
         Flash::success('Destination deleted successfully.');
 
-        return redirect(route('admin.destinations.index'));
+        return redirect(route('destinations.index'));
     }
 }
