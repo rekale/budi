@@ -11,7 +11,7 @@
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
-                <p>InfyOm</p>
+                <p>Travel</p>
                 @else
                     <p>{{ Auth::user()->name}}</p>
                 @endif
@@ -21,7 +21,7 @@
         </div>
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
+        {{-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
           <span class="input-group-btn">
@@ -29,11 +29,11 @@
             </button>
           </span>
             </div>
-        </form>
+        </form> --}}
         <!-- Sidebar Menu -->
 
         <ul class="sidebar-menu">
-            @include('layouts.menu')
+            @include('layouts.admin.menu')
         </ul>
         <!-- /.sidebar-menu -->
     </section>

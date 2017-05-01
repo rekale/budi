@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Destination;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -20,5 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(Destination::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->word,
+        'abstract' => $faker->sentence,
+        'body' => $faker->paragraph(50),
+        'image' => $faker->imageUrl(640, 480, 'city'),
     ];
 });
