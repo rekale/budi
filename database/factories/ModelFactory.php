@@ -27,7 +27,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(Destination::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->word,
+        'title' => $faker->unique()->word,
         'abstract' => $faker->sentence,
         'body' => $faker->paragraph(50),
         'image' => $faker->imageUrl(640, 480, 'city'),
