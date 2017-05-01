@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Criteria\LatestCriteria;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 use App\Repositories\DestinationRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Http\Request;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Storage;
@@ -30,7 +31,8 @@ class DestinationController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->destinationRepository->pushCriteria(new RequestCriteria($request));
+        $this->destinationRepository->pushCriteria(new RequestCriteria($request))
+                                    ->pushCriteria(LatestCriteria::class);
         $destinations = $this->destinationRepository->paginate();
 
         return view('admin.destinations.index')
