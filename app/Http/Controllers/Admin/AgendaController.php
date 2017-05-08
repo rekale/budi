@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Criteria\LatestCriteria;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\CreateAgendaRequest;
 use App\Http\Requests\UpdateAgendaRequest;
@@ -30,7 +31,8 @@ class AgendaController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->agendaRepository->pushCriteria(new RequestCriteria($request));
+        $this->agendaRepository->pushCriteria(new RequestCriteria($request))
+                                ->pushCriteria(LatestCriteria::class);
         $agendas = $this->agendaRepository->paginate(15);
 
         return view('admin.agendas.index')

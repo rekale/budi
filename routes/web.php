@@ -41,4 +41,5 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
     Route::get('/home', 'HomeController@index');
     Route::resource('destinations', 'DestinationController');
     Route::resource('agendas', 'AgendaController');
+    Route::resource('participants', 'ParticipantController');
 });

@@ -1,9 +1,8 @@
-<!-- Agenda At Field -->
+<!-- Destination Field -->
 <div class="form-group col-sm-12">
     {!! Form::label('destination', 'Destination:') !!}
     {!! Form::select('destination_id', $destinations, null, ['class' => 'form-control']) !!}
 </div>
-
 
 <!-- Agenda At Field -->
 <div class="form-group col-sm-6">
