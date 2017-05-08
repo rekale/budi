@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Agenda;
+use App\Models\Participant;
 use Eloquent as Model;
 
 /**
@@ -61,5 +63,13 @@ class Destination extends Model
         'image' => 'image|max:1000'
     ];
 
+    public function agendas()
+    {
+        return $this->hasMany(Agenda::class);
+    }
 
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
 }

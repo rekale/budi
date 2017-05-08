@@ -45,7 +45,7 @@ class Participant extends Model
      */
     public static $rules = [
         'destination_id' => 'integer|required',
-        'name' => 'string|max:25|required',
+        'name' => 'string|max:30|required',
         'email' => 'email|required|string|max:255',
         'phone' => 'numeric|required',
         'position' => 'string|required|max:255'

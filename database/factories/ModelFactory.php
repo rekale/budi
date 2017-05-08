@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Agenda;
 use App\Models\Destination;
+use App\Models\Participant;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +33,23 @@ $factory->define(Destination::class, function (Faker\Generator $faker) {
         'abstract' => $faker->sentence,
         'body' => $faker->paragraph(50),
         'image' => $faker->imageUrl(640, 480, 'city'),
+    ];
+});
+
+$factory->define(Agenda::class, function (Faker\Generator $faker) {
+    return [
+        'destination_id' => 1,
+        'agenda_at' => $faker->date,
+        'name' => $faker->word(3, true),
+    ];
+});
+
+$factory->define(Participant::class, function (Faker\Generator $faker) {
+    return [
+        'destination_id' => 1,
+        'name' => $faker->name,
+        'email' => $faker->unique()->email,
+        'phone' => $faker->phoneNumber,
+        'position' => $faker->word,
     ];
 });
