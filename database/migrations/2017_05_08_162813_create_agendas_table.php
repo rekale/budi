@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateDestinationsTable extends Migration
+class CreateAgendasTable extends Migration
 {
 
     /**
@@ -13,13 +13,13 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
+        Schema::create('agendas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 15)->unique();
-            $table->string('abstract');
-            $table->text('body');
-            $table->string('image');
+            $table->integer('destination_id')->unsigned();
+            $table->date('agenda_at');
+            $table->string('name');
             $table->timestamps();
+            $table->foreign('destination_id')->references('id')->on('destinations');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateDestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('destinations');
+        Schema::drop('agendas');
     }
 }

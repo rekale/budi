@@ -108,7 +108,7 @@ return [
 
     'options' => [
 
-        'softDelete' => true,
+        'softDelete' => false,
 
         'tables_searchable_default' => false,
     ],
@@ -150,7 +150,7 @@ return [
 
             'enabled'       => true,
 
-            'menu_file'     => 'layouts/menu.blade.php',
+            'menu_file'     => 'layouts/admin/menu.blade.php',
         ],
     ],
 
