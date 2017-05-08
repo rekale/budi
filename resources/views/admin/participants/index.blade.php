@@ -17,6 +17,7 @@
             <div class="box-body">
                     @include('admin.participants.table')
             </div>
+            {!! $participants->links() !!}
         </div>
     </div>
 @endsection

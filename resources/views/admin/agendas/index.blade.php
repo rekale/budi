@@ -17,6 +17,7 @@
             <div class="box-body">
                     @include('admin.agendas.table')
             </div>
+            {!! $agendas->links() !!}
         </div>
     </div>
 @endsection
